@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Krishimitra — Enhanced Digital Krishi Officer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo" aria-hidden="true">Km</div>
+      <div>
+        <h1>Krishimitra — Digital Krishi Officer</h1>
+        <p class="lead">Ask farming questions in your language. Get instant, context-aware advice.</p>
+      </div>
+    </header>
+
+    <main class="card" role="main">
+      <div class="query-input-area">
+        <div class="textarea-wrapper">
+          <label for="queryText" class="meta">Ask your question below</label>
+          <textarea id="queryText" rows="3" placeholder="e.g., Which pesticide for leaf spot in my banana?" aria-label="Type your farming question"></textarea>
+        </div>
+        <div class="language-selector-wrapper">
+          <label for="langSelect" class="meta">Language</label>
+          <select id="langSelect" aria-label="Select language">
+            <option value="en-US" selected>English</option>
+            <option value="ml-IN">Malayalam</option>
+            <option value="hi-IN">Hindi</option>
+            <option value="ta-IN">Tamil</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="controls" role="group" aria-label="Input controls">
+        <button id="micBtn" class="icon-btn big" title="Voice input (press to speak)"><span class="mic-icon">🎤</span> Speak</button>
+        <label for="imageInput" class="icon-btn big" style="cursor:pointer">📷 Upload Image</label>
+        <input type="file" id="imageInput" accept="image/*" class="hidden">
+        <button id="sendBtn" class="big primary">Ask Now</button>
+        <button id="escalateBtn" class="big ghost" title="Escalate to a human Agri Officer">Escalate</button>
+      </div>
+      
+      <div id="imagePreviewContainer" class="image-preview-container"></div>
+
+      <div id="responseArea" class="response hidden" aria-live="polite">
+        <div class="meta" id="responseMeta">Processing...</div>
+        <div class="response-content">
+            <div id="loader" class="loader"></div>
+            <div id="responseText"></div>
+        </div>
+        <div id="responseActions" class="response-actions hidden">
+          <button id="playAudio" class="ghost small">🔊 Play Answer</button>
+          <button id="saveFeedback" class="ghost small">👍 Helpful</button>
+          <button id="reportBtn" class="ghost small">⚠ Report</button>
+        </div>
+      </div>
+
+      <h2 class="history-title">Your Recent Queries</h2>
+      <div class="history" id="historyList" aria-label="Past queries"></div>
+    </main>
+    
+    <footer>
+        <div class="footer-left">Offline-ready • Large fonts • Simple UI</div>
+        <div class="footer-right">&copy; Krishimitra</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
